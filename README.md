@@ -155,7 +155,8 @@ Positive Reviews: 6
 Negative Reviews: 3
 Neutral Reviews: 1
 ```
-![Sentiment Analysis Graph](exp6.png)
+<img width="960" height="582" alt="image" src="https://github.com/user-attachments/assets/6930c9cd-be76-4a9a-be30-0cabd6151430" />
+
 
 
 ## Result
