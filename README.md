@@ -34,71 +34,128 @@ To load product review text, perform sentiment polarity analysis using the `Text
 | | `plt.title()`, `plt.xlabel()`, `plt.ylabel()`, `plt.show()` | Configures chart title, axis labels, and displays the final visualization |
 
 ## Program
-    # Sentiment Analysis on Product Reviews using TextBlob
-    
-    from textblob import TextBlob
-    import matplotlib.pyplot as plt
-    
-    # Step 1: Create a list of sample product reviews
-    reviews = [
-        "This product is excellent and amazing!",
-        "I love this product very much.",
-        "The quality is good and worth the money.",
-        "Very happy with my purchase.",
-        "The product works perfectly.",
-        "This product is terrible and disappointing.",
-        "I hate this product.",
-        "The quality is poor and bad.",
-        "The product is average.",
-        "It is okay, nothing special."
-    ]
-    
-    # Step 2: Initialize counters
-    positive = 0
-    negative = 0
-    neutral = 0
-    
-    # Step 3: Analyze sentiment for each review
-    for review in reviews:
-        analysis = TextBlob(review)
-        polarity = analysis.sentiment.polarity
-    
-        if polarity > 0.1:
-            sentiment = "Positive"
-            positive += 1
-        elif polarity < -0.1:
-            sentiment = "Negative"
-            negative += 1
-        else:
-            sentiment = "Neutral"
-            neutral += 1
-    
-        print(f"Review: {review}")
-        print(f"Polarity: {round(polarity, 2)}")
-        print(f"Sentiment: {sentiment}")
-        print("-" * 50)
-    
-    # Step 4: Display summary
-    print("\nSentiment Summary")
-    print("Positive Reviews:", positive)
-    print("Negative Reviews:", negative)
-    print("Neutral Reviews:", neutral)
-    
-    # Step 5: Plot sentiment distribution
-    labels = ["Positive", "Negative", "Neutral"]
-    counts = [positive, negative, neutral]
-    
-    plt.figure(figsize=(7, 5))
-    plt.bar(labels, counts)
-    plt.title("Product Review Sentiment Analysis")
-    plt.xlabel("Sentiment")
-    plt.ylabel("Number of Reviews")
-    plt.show()
+```python
+#Step 1: Create a List of Sample Product Reviews
+
+from textblob import TextBlob
+import matplotlib.pyplot as plt
+
+reviews = [
+    "This product is excellent and very useful.",
+    "I am extremely happy with the quality.",
+    "The delivery was fast and the product is amazing.",
+    "Good value for money and great performance.",
+    "I love this product and recommend it.",
+    "The product is very bad and disappointing.",
+    "Poor quality and terrible customer service.",
+    "I am unhappy with this product.",
+    "The product is okay and works as expected.",
+    "Average quality with normal performance."
+]
+
+#Step 2: Initialize Sentiment Counters
+
+positive = 0
+negative = 0
+neutral = 0
+
+#Step 3: Analyze Sentiment for Each Review
+
+print("----- SENTIMENT ANALYSIS OF PRODUCT REVIEWS -----")
+
+for review in reviews:
+    analysis = TextBlob(review)
+    polarity = analysis.sentiment.polarity
+
+    if polarity > 0.1:
+        sentiment = "Positive"
+        positive += 1
+
+    elif polarity < -0.1:
+        sentiment = "Negative"
+        negative += 1
+
+    else:
+        sentiment = "Neutral"
+        neutral += 1
+
+    print("\nReview:", review)
+    print("Polarity Score:", round(polarity, 2))
+    print("Sentiment:", sentiment)
+
+#Step 4: Display Summary
+
+print("\n----- SENTIMENT SUMMARY -----")
+
+print("Positive Reviews:", positive)
+print("Negative Reviews:", negative)
+print("Neutral Reviews:", neutral)
+
+#Step 5: Plot Sentiment Distribution
+
+
+plt.figure(figsize=(8, 5))
+
+plt.bar(categories, counts, color="#1f77b4")
+
+plt.title("Sentiment Analysis of Product Reviews")
+plt.xlabel("Sentiment Categories")
+plt.ylabel("Number of Reviews")
+
+plt.show()
+
+```
 
 ## Output
-<img width="590" height="510" alt="image" src="https://github.com/user-attachments/assets/62ffe39a-9b41-405b-899e-e22ab0772507" />
-<img width="505" height="457" alt="image" src="https://github.com/user-attachments/assets/d985ddc7-1d73-47ac-af26-3cebde2cf3f2" />
-<img width="771" height="592" alt="image" src="https://github.com/user-attachments/assets/188928ac-b6e1-4d9b-874c-d6de186a3a53" />
+```text
+ ----- SENTIMENT ANALYSIS OF PRODUCT REVIEWS -----
+
+Review: This product is excellent and very useful.
+Polarity Score: 0.7
+Sentiment: Positive
+
+Review: I am extremely happy with the quality.
+Polarity Score: 0.8
+Sentiment: Positive
+
+Review: The delivery was fast and the product is amazing.
+Polarity Score: 0.4
+Sentiment: Positive
+
+Review: Good value for money and great performance.
+Polarity Score: 0.75
+Sentiment: Positive
+
+Review: I love this product and recommend it.
+Polarity Score: 0.5
+Sentiment: Positive
+
+Review: The product is very bad and disappointing.
+Polarity Score: -0.75
+Sentiment: Negative
+
+Review: Poor quality and terrible customer service.
+Polarity Score: -0.7
+Sentiment: Negative
+
+Review: I am unhappy with this product.
+Polarity Score: -0.6
+Sentiment: Negative
+
+Review: The product is okay and works as expected.
+Polarity Score: 0.2
+Sentiment: Positive
+
+Review: Average quality with normal performance.
+Polarity Score: 0.0
+Sentiment: Neutral
+
+----- SENTIMENT SUMMARY -----
+Positive Reviews: 6
+Negative Reviews: 3
+Neutral Reviews: 1
+```
+![Sentiment Analysis Graph](exp6.png)
 
 
 ## Result
